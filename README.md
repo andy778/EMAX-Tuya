@@ -59,4 +59,7 @@ Status LED: pin P26, inverted True
 Power monitoring chip BL0937: CF/ELE=P6, CF1/VI=P7, SEL=P8
  - shunt resistor: 1 mΩ
 ```
+A file made based on inpirtaions from [upk.libretiny.eu](https://upk.libretiny.eu/) [emax.yaml](emax.yaml)
+
 ### Dowload the binary to WB2S
+Add new device in ESPHome (Home Assistant) and select WB2S device and add the yaml file from this repo and when compiling select to download the u2f file format and use that file to download to the device over serial port 1
