@@ -4,7 +4,7 @@ EMAX smart power sockets that is based on Tuya and one can buy from e.g. Motonet
 ![Älypistorasia Tuote 8774 PO 8548](https://i0.wp.com/emaxsmarthome.fi/wp-content/uploads/2021/10/8774_8.jpg)
 
 ## Hypotheis 
-I should be possible to convert to Esphome with [LibreTiny](https://esphome.io/components/libretiny.html) project and by that enable the device to only exist in an private lan without going to internet. 
+I should be possible to convert to ESPHome with [LibreTiny](https://esphome.io/components/libretiny.html) project and by that enable the device to only exist in an private lan without going to internet. 
 
 ## Reverse engineering
 Opening up the device and a ocular inspection of the chip gives this is an [WB2S](https://docs.libretiny.eu/boards/wb2s/) 
@@ -47,4 +47,4 @@ This port is used as a console port and logs what happens on the device.
 Connecting RT232L USB dongle to serialport on the chips gives this output [tuya.log](tuya.log). 
 
 ## Flashing the device 
-As there was no EMAX in the list of boards I added to [orginal_storage.json](https://upk.libretiny.eu/) genarte an yaml file that one can add to Home Assistant and EspHome.  
+As there was no EMAX in the list of boards I added orginal_storage.json to [upk.libretiny.eu](https://upk.libretiny.eu/) genrate an yaml file that one can add to Home Assistant and ESPHome.  
