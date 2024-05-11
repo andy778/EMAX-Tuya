@@ -8,4 +8,6 @@ I should be possible to convert to Esphome with [LibreTiny](https://esphome.io/c
 
 ## Reverse engineering
 Opening up the device gives this is an [WB2S](https://docs.libretiny.eu/boards/wb2s/) and reading out the software with the help of [ltchiptool](https://github.com/libretiny-eu/ltchiptool) 
-and and basic RT232L USB dongle. ![Get chip info from ltchiptool](Get_chip_info.png)
+and and basic RT232L USB dongle. 
+
+![Get chip info from ltchiptool](Get_chip_info.png)
