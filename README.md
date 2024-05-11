@@ -49,6 +49,7 @@ Connecting RT232L USB dongle to serialport on the chips gives this output [tuya.
 ## Flashing the device 
 As there was no EMAX in the list of boards I added orginal_storage.json to [upk.libretiny.eu](https://upk.libretiny.eu/) genrate an yaml file that one can add to Home Assistant and ESPHome.  
 
+### Get an yaml file for ESPHome
 ```
 Found BK7231T config!
 Switch/plug config
@@ -58,3 +59,4 @@ Status LED: pin P26, inverted True
 Power monitoring chip BL0937: CF/ELE=P6, CF1/VI=P7, SEL=P8
  - shunt resistor: 1 mΩ
 ```
+### Dowload the binary to WB2S
