@@ -46,3 +46,5 @@ This port is used as a console port and logs what happens on the device.
 
 Connecting RT232L USB dongle to serialport on the chips gives this output [tuya.log](tuya.log). 
 
+## Flashing the device 
+As there was no EMAX in the list of boards I added to [orginal_storage.json](https://upk.libretiny.eu/) genarte an yaml file that one can add to Home Assistant and EspHome.  
