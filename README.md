@@ -12,4 +12,4 @@ and and basic RT232L USB dongle.
 
 ![Get chip info from ltchiptool](Get_chip_info.png)
 
-Connecting RT232L USB dongle to serialport on the chips gives this output [(tuya.log](tuya.log)
+Connecting RT232L USB dongle to serialport on the chips gives this output [tuya.log](tuya.log)
