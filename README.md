@@ -11,3 +11,5 @@ Opening up the device gives this is an [WB2S](https://docs.libretiny.eu/boards/w
 and and basic RT232L USB dongle. 
 
 ![Get chip info from ltchiptool](Get_chip_info.png)
+
+Connecting RT232L USB dongle to serialport on the chips gives this output [(tuya.log](tuya.log)
