@@ -7,9 +7,42 @@ EMAX smart power sockets that is based on Tuya and one can buy from e.g. Motonet
 I should be possible to convert to Esphome with [LibreTiny](https://esphome.io/components/libretiny.html) project and by that enable the device to only exist in an private lan without going to internet. 
 
 ## Reverse engineering
-Opening up the device gives this is an [WB2S](https://docs.libretiny.eu/boards/wb2s/) and reading out the software with the help of [ltchiptool](https://github.com/libretiny-eu/ltchiptool) 
-and and basic RT232L USB dongle. 
+Opening up the device and a ocular inspection of the chip gives this is an [WB2S](https://docs.libretiny.eu/boards/wb2s/) 
 
-![Get chip info from ltchiptool](Get_chip_info.png)
 
-Connecting RT232L USB dongle to serialport on the chips gives this output [tuya.log](tuya.log)
+### Serial port 1
+This port is used as a for programing the device and reading out the software with the help of [ltchiptool](https://github.com/libretiny-eu/ltchiptool) 
+and and basic RT232L USB dongle the chip info and software versio is [Get chip info from ltchiptool](Get_chip_info.png).
+
+Reading out the ROM file can also be dobe with ltchiptool (I used a Windows 11 OS for this). Analyzing the dumped out software can be dessected with [bk7231tools](https://github.com/tuya-cloudcutter/bk7231tools) 
+```
+$ bk7231tools dissect_dump -e -O dump_extract_dir orginal.bin 
+RBL containers:
+	0x10f9a: bootloader - [encoding_algorithm=NONE, size=0xdd20]
+		extracted to dump_extract_dir
+	0x129f0a: app - [encoding_algorithm=NONE, size=0xf0200]
+		extracted to dump_extract_dir
+Storage partition:
+	0x1ee000: 32 KiB - 12 keys
+	- 'gw_bi'
+	- 'user_param_key'
+	- 'gw_wsm'
+	- 'is_stride'
+	- 'gw_di'
+	- 'tls_ca_cnt'
+	- 'gw_ai'
+	- '0000032ccw'
+	- 'timer_arr'
+	- 'em_sys_env'
+	- 'astro_timer'
+	- 'mf_test_close'
+		extracted all keys to dump_extract_dir/orginal_storage.json
+Storage area `user_param_key`:
+	- found! Extracted to dump_extract_dir/orginal_user_param_key.json
+```
+
+### Serial port 2 
+This port is used as a console port and logs what happens on the device.
+
+Connecting RT232L USB dongle to serialport on the chips gives this output [tuya.log](tuya.log). 
+
