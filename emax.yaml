@@ -68,6 +68,11 @@ status_led:
     number: P26
     inverted: true
 
+substitutions:
+  voltage_divider: "912.7644402186831"
+  current_resistor: "0.0009428028717413666"
+  current_multiply: "0.9428028717413666"
+
 sensor:
   - platform: hlw8012
     model: BL0937
@@ -82,11 +87,16 @@ sensor:
       inverted: true
     current:
       name: BL0937 Current
+      filters:
+      - multiply: ${current_multiply}
     voltage:
       name: BL0937 Voltage
     power:
       name: BL0937 Power
     energy:
       name: BL0937 Energy
-    voltage_divider: 1600
-    current_resistor: 0.001 ohm
+    voltage_divider: ${voltage_divider} #1600
+    current_resistor: ${current_resistor} # 0.001 ohm
+  - platform: wifi_signal
+    name: "WiFi Signal Sensor"
+    update_interval: 60s
