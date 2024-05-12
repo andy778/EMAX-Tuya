@@ -62,4 +62,7 @@ Power monitoring chip BL0937: CF/ELE=P6, CF1/VI=P7, SEL=P8
 A file made based on inpirtaions from [upk.libretiny.eu](https://upk.libretiny.eu/) [emax.yaml](emax.yaml)
 
 ### Dowload the binary to WB2S
-Add new device in ESPHome (Home Assistant) and select WB2S device and add the yaml file from this repo and when compiling select to download the u2f file format and use that file to download to the device over serial port 1
+Add new device in ESPHome (Home Assistant) and select WB2S device and add the yaml file from this repo and when compiling select to download the u2f file format and use that file to download to the device over serial port 1. After this one see the webservice with the values [webserver](webserver.png). Note I got 422.2V where it should be around 240V so either I have some broken shunt resistor or it requires [calibration](https://esphome.io/components/sensor/hlw8012.html#configuration-variables).
+
+
+
