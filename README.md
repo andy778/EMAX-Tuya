@@ -1,4 +1,13 @@
 # EMAX-Tuya
+
+<!-- 
+SPDX-License-Identifier: MIT
+-->
+<!--
+[![REUSE status](https://api.reuse.software/badge/git.fsfe.org/reuse/api)](https://api.reuse.software/info/git.fsfe.org/reuse/api)
+-->
+[![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/andy778/EMAX-Tuya/badge)](https://securityscorecards.dev/viewer/?uri=github.com/andy778/EMAX-Tuya)
+
 EMAX smart power sockets that is based on Tuya and one can buy from e.g. Motonet [95-02136](https://www.motonet.fi/tuote/emax-alypistorasia-energiankulutusmittarilla?product=95-02136) and the importer homepage is [emaxsmarthome](https://emaxsmarthome.fi/product/alypistorasia-16a-3500w-energiakulutusmittarilla/)
 
 Note! this have now been added to [tuya-cloudcutter](https://github.com/tuya-cloudcutter/tuya-cloudcutter.github.io/commit/1f579ddf50f7668a34c5097660ae8301644443fc) so should be simpler for other having this one
