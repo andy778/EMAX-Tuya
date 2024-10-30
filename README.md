@@ -10,7 +10,7 @@ SPDX-License-Identifier: MIT
 
 EMAX smart power sockets that is based on Tuya and one can buy from e.g. Motonet [95-02136](https://www.motonet.fi/tuote/emax-alypistorasia-energiankulutusmittarilla?product=95-02136) and the importer homepage is [emaxsmarthome](https://emaxsmarthome.fi/product/alypistorasia-16a-3500w-energiakulutusmittarilla/)
 
-Note! this have now been added to [tuya-cloudcutter](https://github.com/tuya-cloudcutter/tuya-cloudcutter.github.io/commit/1f579ddf50f7668a34c5097660ae8301644443fc) so should be simpler for other having this one
+This have now been added to [tuya-cloudcutter](https://github.com/tuya-cloudcutter/tuya-cloudcutter.github.io/commit/1f579ddf50f7668a34c5097660ae8301644443fc) but the tuya-cloudcutter vulnerability this requires, was patched so one could probably not use this any more!   
 
 
 ![Älypistorasia Tuote 8774 PO 8548](https://i0.wp.com/emaxsmarthome.fi/wp-content/uploads/2021/10/8774_8.jpg)
@@ -24,7 +24,8 @@ Opening up the device and a ocular inspection of the chip gives this is an [WB2S
 
 ### Serial port 1
 This port is used as a for programing the device and reading out the software with the help of [ltchiptool](https://github.com/libretiny-eu/ltchiptool) 
-and and basic RT232L USB dongle the chip info and software versio is [Get chip info from ltchiptool](Get_chip_info.png).
+and and basic [RT232L USB dongle](cabling.png) the chip info and software versio is [Get chip info from ltchiptool](Get_chip_info.png).
+Note! it will probably need external power in order to flash new software to it. 
 
 Reading out the ROM file can also be dobe with ltchiptool (I used a Windows 11 OS for this). Analyzing the dumped out software can be dessected with [bk7231tools](https://github.com/tuya-cloudcutter/bk7231tools) 
 ```
@@ -56,7 +57,7 @@ Storage area `user_param_key`:
 ### Serial port 2 
 This port is used as a console port and logs what happens on the device.
 
-Connecting RT232L USB dongle to serialport on the chips gives this output [tuya.log](tuya.log). 
+Connecting RT232L USB dongle to the chips gives this output [tuya.log](tuya.log). 
 
 ## Flashing the device 
 As there was no EMAX in the list of boards I added orginal_storage.json to [upk.libretiny.eu](https://upk.libretiny.eu/) genrate an yaml file that one can add to Home Assistant and ESPHome.  
