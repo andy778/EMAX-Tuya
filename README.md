@@ -10,7 +10,8 @@ SPDX-License-Identifier: MIT
 
 EMAX smart power sockets that is based on Tuya and one can buy from e.g. Motonet [95-02136](https://www.motonet.fi/tuote/emax-alypistorasia-energiankulutusmittarilla?product=95-02136) and the importer homepage is [emaxsmarthome](https://emaxsmarthome.fi/product/alypistorasia-16a-3500w-energiakulutusmittarilla/)
 
-This have now been added to [tuya-cloudcutter](https://github.com/tuya-cloudcutter/tuya-cloudcutter.github.io/commit/1f579ddf50f7668a34c5097660ae8301644443fc) but the tuya-cloudcutter vulnerability this requires, was patched so one could probably not use this any more!   
+
+ ~~This have now been added to [tuya-cloudcutter](https://github.com/tuya-cloudcutter/tuya-cloudcutter.github.io/commit/1f579ddf50f7668a34c5097660ae8301644443fc) but the tuya-cloudcutter vulnerability this requires, was patched so one could probably not use this any more!~~   
 
 
 ![Älypistorasia Tuote 8774 PO 8548](https://i0.wp.com/emaxsmarthome.fi/wp-content/uploads/2021/10/8774_8.jpg)
