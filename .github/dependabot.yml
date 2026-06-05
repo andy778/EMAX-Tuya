@@ -9,3 +9,7 @@ updates:
     directory: "/" # Location of package manifests
     schedule:
       interval: "weekly"
+    auto-merge:
+      patch: true
+      minor: false
+      major: false
