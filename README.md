@@ -16,21 +16,21 @@ EMAX smart power sockets that is based on Tuya and one can buy from e.g. Motonet
 
 ![Älypistorasia Tuote 8774 PO 8548](https://i0.wp.com/emaxsmarthome.fi/wp-content/uploads/2021/10/8774_8.jpg)
 
-## Hypotheis 
-I should be possible to convert to ESPHome with [LibreTiny](https://esphome.io/components/libretiny.html) project and by that enable the device to only exist in an private lan without going to internet. 
+## Result
+It is possible to convert to ESPHome with the [LibreTiny](https://esphome.io/components/libretiny.html) project, and by that enable the device to only exist on a private LAN without going to the internet. This has been working for years.
 
 ## Reverse engineering
-Opening up the device and a ocular inspection of the chip gives this is an [WB2S](https://docs.libretiny.eu/boards/wb2s/) 
+Opening up the device and a visual inspection of the chip shows this is a [WB2S](https://docs.libretiny.eu/boards/wb2s/) 
 
 
 ### Serial port 1
-This port is used as a for programing the device and reading out the software with the help of [ltchiptool](https://github.com/libretiny-eu/ltchiptool) 
-and and basic [RT232L USB dongle](cabling.png) the chip info and software versio is [Get chip info from ltchiptool](Get_chip_info.png).
-Note! it will probably need external power in order to flash new software to it. 
+This port is used for programming the device and reading out the software with the help of [ltchiptool](https://github.com/libretiny-eu/ltchiptool) 
+and a basic [RT232L USB dongle](cabling.png). The chip info and software version is [Get chip info from ltchiptool](Get_chip_info.png).
+Note! It will probably need external power in order to flash new software to it. 
 
-Reading out the ROM file can also be dobe with ltchiptool (I used a Windows 11 OS for this). Analyzing the dumped out software can be dessected with [bk7231tools](https://github.com/tuya-cloudcutter/bk7231tools) 
+Reading out the ROM file can also be done with ltchiptool (I used Windows 11 for this). The dumped-out software can be dissected with [bk7231tools](https://github.com/tuya-cloudcutter/bk7231tools) 
 ```
-$ bk7231tools dissect_dump -e -O dump_extract_dir orginal.bin 
+$ bk7231tools dissect_dump -e -O dump_extract_dir original.bin 
 RBL containers:
 	0x10f9a: bootloader - [encoding_algorithm=NONE, size=0xdd20]
 		extracted to dump_extract_dir
@@ -50,9 +50,9 @@ Storage partition:
 	- 'em_sys_env'
 	- 'astro_timer'
 	- 'mf_test_close'
-		extracted all keys to dump_extract_dir/orginal_storage.json
+		extracted all keys to dump_extract_dir/original_storage.json
 Storage area `user_param_key`:
-	- found! Extracted to dump_extract_dir/orginal_user_param_key.json
+	- found! Extracted to dump_extract_dir/original_user_param_key.json
 ```
 
 ### Serial port 2 
@@ -61,9 +61,9 @@ This port is used as a console port and logs what happens on the device.
 Connecting RT232L USB dongle to the chips gives this output [tuya.log](tuya.log). 
 
 ## Flashing the device 
-As there was no EMAX in the list of boards I added orginal_storage.json to [upk.libretiny.eu](https://upk.libretiny.eu/) genrate an yaml file that one can add to Home Assistant and ESPHome.  
+As there was no EMAX in the list of boards, I added original_storage.json to [upk.libretiny.eu](https://upk.libretiny.eu/) to generate a yaml file that one can add to Home Assistant and ESPHome.  
 
-### Get an yaml file for ESPHome
+### Get a yaml file for ESPHome
 ```
 Found BK7231T config!
 Switch/plug config
@@ -73,10 +73,10 @@ Status LED: pin P26, inverted True
 Power monitoring chip BL0937: CF/ELE=P6, CF1/VI=P7, SEL=P8
  - shunt resistor: 1 mΩ
 ```
-A file made based on inpirtaions from [upk.libretiny.eu](https://upk.libretiny.eu/) [emax.yaml](emax.yaml)
+A file made based on inspiration from [upk.libretiny.eu](https://upk.libretiny.eu/): [emax.yaml](emax.yaml)
 
-### Dowload the binary to WB2S
-Add new device in ESPHome (Home Assistant) and select WB2S device and add the yaml file from this repo and when compiling select to download the u2f file format and use that file to download to the device over serial port 1. After this one see the webservice with the values ![webserver](webserver.png) .
+### Download the binary to WB2S
+Add a new device in ESPHome (Home Assistant), select the WB2S device, add the yaml file from this repo, and when compiling select to download the u2f file format. Use that file to flash the device over serial port 1. After this you can see the webserver with the values ![webserver](webserver.png) .
 
 Note I got 422.2V where it should be around 240V so either I have some broken shunt resistor or it requires [calibration](https://esphome.io/components/sensor/hlw8012.html#configuration-variables).
 
