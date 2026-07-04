@@ -1,0 +1,41 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [ "main" ]
+
+permissions: read-all
+
+jobs:
+  validate-esphome-config:
+    name: Validate ESPHome config
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Checkout code"
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
+
+      - name: "Set up Python"
+        uses: actions/setup-python@e797f83bcb11b83ae66e0230d6156d7c80228e7c # v6.0.0
+        with:
+          python-version: "3.12"
+
+      - name: "Install ESPHome"
+        run: pip install esphome
+
+      - name: "Create dummy secrets"
+        run: |
+          cat > secrets.yaml <<'EOF'
+          wifi_ssid: "placeholder"
+          wifi_password: "placeholder"
+          ap_password: "placeholder"
+          ota_password: "placeholderpassword"
+          encryption_key: "3K8qHTazdGWq6zdx0QU33LWI0LAMGne/Cxl1tDRLta4="
+          web_server_username: "placeholder"
+          web_server_password: "placeholder"
+          EOF
+
+      - name: "Validate emax.yaml"
+        run: esphome config emax.yaml
