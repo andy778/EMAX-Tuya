@@ -1,5 +1,7 @@
 # EMAX-Tuya
 
+**Convert an EMAX Tuya smart socket into a [LibreTiny](https://esphome.io/components/libretiny.html)-based device, so it works with [ESPHome](https://esphome.io/) / Home Assistant instead of the Tuya cloud.**
+
 <!-- 
 SPDX-License-Identifier: MIT
 -->
@@ -17,7 +19,7 @@ EMAX smart power sockets that is based on Tuya and one can buy from e.g. Motonet
 ![Älypistorasia Tuote 8774 PO 8548](https://i0.wp.com/emaxsmarthome.fi/wp-content/uploads/2021/10/8774_8.jpg)
 
 ## Result
-It is possible to convert to ESPHome with the [LibreTiny](https://esphome.io/components/libretiny.html) project, and by that enable the device to only exist on a private LAN without going to the internet. This has been working for years.
+This device can be converted to run [LibreTiny](https://esphome.io/components/libretiny.html), which ESPHome supports as a platform. That turns this Tuya-cloud device into an ESPHome device, letting it stay on a private LAN without going to the internet. This has been working for years.
 
 ## Reverse engineering
 Opening up the device and a visual inspection of the chip shows this is a [WB2S](https://docs.libretiny.eu/boards/wb2s/) 
